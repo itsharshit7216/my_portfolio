@@ -7,14 +7,14 @@ const skillsData = [
   { name: 'Data Structures & Algorithms', level: 88, color: 'bg-purple-500' },
   { name: 'Python', level: 80, color: 'bg-yellow-500' },
   { name: 'HTML / CSS / JavaScript', level: 75, color: 'bg-pink-500' },
-  { name: 'Git & GitHub', level: 85, color: 'bg-slate-400' },
+  { name: 'Git & GitHub', level: 85, color: 'bg-slate-500' },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 relative bg-dark">
+    <section id="skills" className="py-24 relative" style={{ background: 'linear-gradient(135deg, #f0f4f8 0%, #e8f4fd 100%)' }}>
       <div className="container mx-auto px-6 md:px-12">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,11 +22,11 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-800">
             Technical <span className="text-gradient">Skills</span>
           </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-secondary mx-auto rounded-full" />
+          <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
             A blend of strong fundamentals, object-oriented design, and intelligent systems.
           </p>
         </motion.div>
@@ -41,17 +41,17 @@ const Skills = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="flex justify-between items-end mb-2">
-                <span className="text-white font-semibold text-lg">{skill.name}</span>
-                <span className="text-slate-400 font-medium text-sm">{skill.level}%</span>
+                <span className="text-slate-700 font-semibold text-lg">{skill.name}</span>
+                <span className="text-slate-500 font-medium text-sm">{skill.level}%</span>
               </div>
-              
-              <div className="w-full bg-darker/50 rounded-full h-3 border border-white/5 overflow-hidden">
+
+              <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden shadow-inner">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0.2 + (index * 0.1) }}
-                  className={`h-full rounded-full ${skill.color} shadow-[0_0_10px_rgba(255,255,255,0.2)]`}
+                  className={`h-full rounded-full ${skill.color} shadow-sm`}
                 />
               </div>
             </motion.div>

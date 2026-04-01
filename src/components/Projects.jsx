@@ -35,9 +35,9 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-white">
       <div className="container mx-auto px-6 md:px-12">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +45,11 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-800">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
             A selection of my recent work in Software Development and AI.
           </p>
         </motion.div>
@@ -62,24 +62,26 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 relative group overflow-hidden"
+              className="relative rounded-2xl p-8 border border-slate-200 bg-white transition-all duration-300 group overflow-hidden
+                         hover:-translate-y-3 hover:shadow-2xl hover:shadow-blue-200/60 hover:border-primary hover:bg-white"
             >
-              {/* Background Glow Effect on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Left accent bar on hover */}
+              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary to-secondary rounded-l-2xl scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
 
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-primary transition-colors duration-200">
                 {project.title}
               </h3>
-              
-              <p className="text-slate-300 leading-relaxed mb-6">
+
+              <p className="text-slate-500 leading-relaxed mb-6">
                 {project.description}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tech.map((tech, i) => (
-                  <span 
-                    key={i} 
-                    className="px-3 py-1 text-xs font-medium text-primary bg-primary/10 border border-primary/20 rounded-full"
+                  <span
+                    key={i}
+                    className="px-3 py-1 text-xs font-medium text-primary bg-blue-50 border border-blue-200 rounded-full
+                               group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-colors duration-200"
                   >
                     {tech}
                   </span>
@@ -88,32 +90,32 @@ const Projects = () => {
 
               <div className="flex items-center gap-4 mt-auto">
                 {project.github && (
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
+                  <a
+                    href={project.github}
+                    target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors font-medium"
                   >
                     <Github size={20} />
-                    <span className="text-sm font-medium">Code</span>
+                    <span className="text-sm">Code</span>
                   </a>
                 )}
                 {project.demo && (
-                  <a 
-                    href={project.demo} 
-                    target="_blank" 
+                  <a
+                    href={project.demo}
+                    target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 text-slate-400 hover:text-secondary transition-colors"
+                    className="flex items-center gap-2 text-slate-500 hover:text-secondary transition-colors font-medium"
                   >
                     <ExternalLink size={20} />
-                    <span className="text-sm font-medium">Live Demo</span>
+                    <span className="text-sm">Live Demo</span>
                   </a>
                 )}
               </div>
             </motion.div>
           ))}
         </div>
-        
+
       </div>
     </section>
   );

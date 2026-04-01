@@ -26,7 +26,9 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg py-4' : 'bg-transparent py-6'
+        scrolled
+          ? 'bg-white/90 backdrop-blur-md shadow-md py-4 border-b border-slate-200'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -34,9 +36,9 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-2xl font-bold font-sans text-white cursor-pointer"
+          className="text-2xl font-bold font-sans cursor-pointer"
         >
-          <span className="text-gradient">Harshit</span>.
+          <span className="text-gradient">Harshit</span>
         </motion.div>
 
         {/* Desktop Nav */}
@@ -52,7 +54,7 @@ const Navbar = () => {
                 to={link.to}
                 smooth={true}
                 duration={500}
-                className="text-slate-300 hover:text-white transition-colors cursor-pointer font-medium"
+                className="text-slate-600 hover:text-primary transition-colors cursor-pointer font-medium"
               >
                 {link.name}
               </Link>
@@ -62,10 +64,10 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: navLinks.length * 0.1 }}
-            href="/resume.pdf"
+            href="/Latest_harshitGen_Cv.pdf"
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-2 bg-primary/20 text-primary border border-primary/30 hover:bg-primary/40 rounded-lg font-medium transition-colors"
+            className="px-4 py-2 bg-primary text-white hover:bg-primary/90 rounded-lg font-medium transition-colors shadow-sm"
           >
             Resume
           </motion.a>
@@ -75,7 +77,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-slate-300 hover:text-white focus:outline-none"
+            className="text-slate-600 hover:text-primary focus:outline-none"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -89,7 +91,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/10"
+            className="md:hidden bg-white border-t border-slate-200 shadow-md"
           >
             <div className="flex flex-col px-6 py-4 space-y-4">
               {navLinks.map((link, index) => (
@@ -99,14 +101,14 @@ const Navbar = () => {
                   smooth={true}
                   duration={500}
                   onClick={() => setIsOpen(false)}
-                  className="text-slate-300 hover:text-white transition-colors cursor-pointer font-medium py-2"
+                  className="text-slate-600 hover:text-primary transition-colors cursor-pointer font-medium py-2"
                 >
                   {link.name}
                 </Link>
               ))}
-              <a 
-                href="/resume.pdf" 
-                target="_blank" 
+              <a
+                href="/resume.pdf"
+                target="_blank"
                 rel="noreferrer"
                 className="text-primary font-medium py-2 hover:text-primary/80 transition-colors"
               >
